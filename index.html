@@ -37,18 +37,9 @@
     </div> -->
 
     <script>
-        var url = 'https://newsapi.org/v2/everything?' +
-          'q=Apple&' +
-          'apiKey=cd26449003a64d83b03a382668e966c1';
-
-        var req = new Request(url);
-
-        fetch(req)
-            .then(function(response) {
-                return response.json();
-            }).then(data=> {
-                console.log(data)
-            })
+        fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=>console.log(json))
     </script>
 </body>
 </html>
