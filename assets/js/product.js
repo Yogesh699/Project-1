@@ -1,3 +1,4 @@
+
 function generateProducts(element){
     let singleProduct = `
     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between">
@@ -30,7 +31,7 @@ function generateProducts(element){
         </div>
         <div class="flex items-center justify-between">
             <span class="text-3xl font-bold text-gray-900 dark:text-white">$${element.price}</span>
-            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+            <a data-product-id=${element.id} id="add-to-cart" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">Add to Cart</a>
         </div>
     </div>
     </div>`
@@ -39,12 +40,46 @@ function generateProducts(element){
 }
 
 let mainDiv = document.getElementById("products")
+let cartList = new Set()
+localStorage.getItem('cart-list')?.split(",").forEach(item => {
+    cartList.add(item)
+})
 fetch('https://fakestoreapi.com/products')
     .then(res => res.json())
-    .then(data =>
-        data.forEach(element => {
-            mainDiv.innerHTML += generateProducts(element)
-        })
+    .then(data =>{
+            data.forEach(element => {
+                mainDiv.innerHTML += generateProducts(element)
+            })
+
+            document.querySelectorAll('#add-to-cart').forEach(element => {
+                element.addEventListener('click', (event)=>{
+                    cartList.add(event.currentTarget.dataset.productId)
+                    const cartArray = Array.from(cartList)
+                    localStorage.setItem("cart-list",cartArray)
+                    
+                    document.getElementById('cart-number').innerHTML = localStorage.getItem('cart-list').split(",").length
+                    if(localStorage.getItem('cart-list').split(",").includes(element.dataset.productId)){
+                        element.innerHTML = "Added in Cart"
+                        element.classList.remove('bg-blue-700', 'hover:bg-blue-800', 'focus:ring-4', 'focus:outline-none', 'focus:ring-blue-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'dark:bg-blue-600', 'dark:hover:bg-blue-700', 'dark:focus:ring-blue-800');
+                        element.classList.add('bg-green-600', 'hover:bg-green-700', 'focus:ring-4', 'focus:outline-none', 'focus:ring-green-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'dark:bg-green-600', 'dark:hover:bg-green-700', 'dark:focus:ring-green-800');                    
+                    }
+
+                })
+
+                checkCartData(element)
+            })
+
+
+        }
     )
+
+
+function checkCartData(element){
+    if(localStorage.getItem('cart-list')?.split(",").includes(element.dataset.productId)){
+        element.innerHTML = "Added in Cart"
+        element.classList.remove('bg-blue-700', 'hover:bg-blue-800', 'focus:ring-4', 'focus:outline-none', 'focus:ring-blue-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'dark:bg-blue-600', 'dark:hover:bg-blue-700', 'dark:focus:ring-blue-800');
+        element.classList.add('bg-green-600', 'hover:bg-green-700', 'focus:ring-4', 'focus:outline-none', 'focus:ring-green-300', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center', 'dark:bg-green-600', 'dark:hover:bg-green-700', 'dark:focus:ring-green-800');
+    }
+}
 
     
