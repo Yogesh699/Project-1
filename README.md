@@ -9,6 +9,7 @@ Welcome to our E-Commerce website! This project allows users to explore a variet
 - [Features](#features)
 - [Setup and Installation](#setup-and-installation)
 - [API Used](#api-used)
+- [deployment Link](#Deployemnet-Link)
 
 ## Introduction
 
@@ -39,3 +40,7 @@ Our E-Commerce website is designed to provide users with a seamless shopping exp
 
 ## API Used
 3. FakeStoreAPI: The FakeStoreAPI is utilized to fetch realistic product data for display in the application.
+
+## deployment Link
+
+https://yogesh699.github.io/Project-1/
