@@ -1,6 +1,6 @@
 # E-Commerce Website
 
-Welcome to our E-Commerce website! This project allows users to explore a variety of products, add them to their cart, and make purchases. The application utilizes the [FakeStoreAPI](https://fakestoreapi.com/) to provide realistic product data.
+Welcome to our E-Commerce website! This project allows users to explore a variety of products, add them to their cart. The application utilizes the [FakeStoreAPI](https://fakestoreapi.com/) to provide realistic product data.
 
 ## Table of Contents
 
