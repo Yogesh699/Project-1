@@ -1,5 +1,7 @@
 # E-Commerce Website
 
+![image](https://github.com/Yogesh699/Project-1/assets/143371945/f6f8dde4-cadf-4675-8e5b-6179f3978bcd)
+
 Welcome to our E-Commerce website! This project allows users to explore a variety of products, add them to their cart. The application utilizes the [FakeStoreAPI](https://fakestoreapi.com/) to provide realistic product data.
 
 ## Table of Contents
