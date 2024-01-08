@@ -8,11 +8,8 @@ Welcome to our E-Commerce website! This project allows users to explore a variet
 - [Technologies](#technologies)
 - [Features](#features)
 - [Setup and Installation](#setup-and-installation)
-- [Usage](#usage)
 - [API Used](#api-used)
-- [Contributing](#contributing)
-- [License](#license)
-
+- 
 ## Introduction
 
 Our E-Commerce website is designed to provide users with a seamless shopping experience. It features a wide range of products that users can browse, add to their cart, and proceed to checkout. The application aims to showcase the use of the [FakeStoreAPI](https://fakestoreapi.com/) to fetch realistic product information.
